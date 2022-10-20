@@ -33,7 +33,7 @@ if (isset($_POST['subirProyecto'])) {
 
   
 
-  $_SESSION['message'] = 'Nota Guardada Correctamente';
+  $_SESSION['message'] = 'Proyecto Guardado Correctamente';
   $_SESSION['message_type'] = 'success';
   header('Location: projects.php');
 

@@ -13,7 +13,7 @@
                               </i>
                               Ver Proyectos
                           </a>
-                          <a class="btn btn-info btn-sm" href="projects-add.php">
+                          <a class="btn btn-info btn-sm" href="project-add.php">
                               <i class="fas fa-pencil-alt">
                               </i>
                               Agregar Proyectos

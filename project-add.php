@@ -40,7 +40,7 @@
             <form action="subirProyecto.php" method="POST">
               <div class="form-group">
                 <label for="inputName">Nombre del Proyecto</label>
-                <input type="text" id="inputName" name="nombre" class="form-control">
+                <input type="text"  id="inputName" name="nombre" class="form-control">
               </div>
               <div class="form-group">
                 <label for="inputDescription">Descripcion del Proyecto</label>

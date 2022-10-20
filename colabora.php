@@ -4,7 +4,7 @@ include "conex2.php";
 $fileUpload=(isset($_FILES['fileUpload']['name']))?$_FILES['fileUpload']['name']:"";
 $fileName=(isset($_POST['fileName']))?$_POST['fileName']:"";
 $opciones=(isset($_POST['opciones']))?$_POST['opciones']:"";
-
+$nombre = $_SESSION['nombre'];
   
     
 
@@ -23,8 +23,6 @@ switch($opciones) {
             $fecha =  date("Y-m-d H:i:s");
 
             $id_proyecto = $_GET['id'];
-
-            $nombre = "USUARIO";
     
             $descripcion = $_POST['descripcion'];
 
