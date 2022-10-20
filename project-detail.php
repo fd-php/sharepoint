@@ -29,8 +29,12 @@ include('conex2.php');
 
           <?php
                         $query = "SELECT * FROM proyectos WHERE id = $id";
+                        
+                        $query2 = "SELECT * FROM colaboraciones WHERE id_proyecto = $id";
 
                         $result_tasks = mysqli_query($conn, $query);
+
+                        $result_tasks2 = mysqli_query($conn, $query2);
 
                         while ($row = mysqli_fetch_assoc($result_tasks)) { ?>
                                               
@@ -73,32 +77,38 @@ include('conex2.php');
                   </div>
                 </div>
               </div>
-              
+             
               <div class="row">
                 <div class="col-12">
                   <h4>Colaboraciones</h4>
-                    <div class="post">
+                  <?php while ($row1 = mysqli_fetch_assoc($result_tasks2)) { ?>
+                  <div class="post">
                       <div class="user-block">
                         <img class="img-circle img-bordered-sm" src="dist/img/user1-128x128.jpg" alt="user image">
                         <span class="username">
-                          <a href="#">Usuario</a>
+                          <a href="#"><?php echo $row1['nombre']; ?></a>
                         </span>
                         <span class="description"></span>
                       </div>
                       <!-- /.user-block -->
                       <p>
-                      
+                      <?php echo $row1['descripcion']; ?>
                       </p>
 
                       <p>
-                        <a href="compartido.php" class="link-black text-sm"><i class="fas fa-link mr-1"></i> Archivos</a>
+                        <a href="colabora.php?id=<?php echo $row1['id_proyecto'] ?>" class="link-black text-sm"><i class="fas fa-link mr-1"></i><?php echo $row1['nombre_archivo']; ?></a>
+                        
                       </p>
+                      <a href="" class="btn-link text-secondary"></i> <?php echo $row1['fecha_colabora']; ?></a>
                     </div>
-
-                 
+                    
+                    
+                    <?php } ?>   
                 </div>
               </div>
+              
             </div>
+            
             <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
               <h3 class="text-primary"><i class="fas fa-cog"></i> <?php echo $row['nombre']; ?></h3>
               <p class="text-muted"><?php echo $row['descripcion']; ?></p>
@@ -120,7 +130,7 @@ include('conex2.php');
            
               </ul>
               <div class="text-center mt-5 mb-3">
-                <a href="compartido.php" class="btn btn-sm btn-primary">Agregar Archivos</a>
+               <a href="colabora.php?id=<?php echo $row['id']?>" class="btn btn-sm btn-primary">Colaborar</a>
                 
               </div>
             </div>
