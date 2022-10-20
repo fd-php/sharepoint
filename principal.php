@@ -8,12 +8,12 @@
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Dashboard</li>
 						</ol>
-                        <a class="btn btn-primary btn-sm" href="project-detail.php">
+                        <a class="btn btn-primary btn-sm" href="projects.php">
                               <i class="fas fa-folder">
                               </i>
                               Ver Proyectos
                           </a>
-                          <a class="btn btn-info btn-sm" href="project-add.php">
+                          <a class="btn btn-info btn-sm" href="projects-add.php">
                               <i class="fas fa-pencil-alt">
                               </i>
                               Agregar Proyectos

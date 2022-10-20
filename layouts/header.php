@@ -104,7 +104,7 @@
 							<?php } ?>
 							
 							<div class="sb-sidenav-menu-heading">Tablero</div>
-							<a class="nav-link" href="charts.html"
+							<a class="nav-link" href="compartido.php"
 							><div class="sb-nav-link-icon"><i class="fas fa-share-alt"></i></div>
 								Compartido</a
 								><a class="nav-link" href="projects.php"
@@ -114,8 +114,8 @@
 							</div>
 					</div>
                     <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        Start Bootstrap
+                        <div class="small">A ingresdo como:</div>
+						<?php echo $nombre; ?>
 					</div>
 				</nav>
 			</div>

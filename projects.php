@@ -1,6 +1,18 @@
-<?php include("./layouts/header.php");?> 
-<!-- Site wrapper -->
+<?php include("./layouts/header.php");
+include('conex2.php');
+?> 
 
+<!-- Site wrapper -->
+<?php if (isset($_SESSION['message'])) { ?>
+                   
+                    <div class="alert alert-<?= $_SESSION['message_type'] ?> alert-dismissible fade show" role="alert">
+                        <?= $_SESSION['message'] ?>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                <?php session_unset();
+                } ?>
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
@@ -42,6 +54,16 @@
         </div>
         <div class="card-body p-0">
           <table class="table table-striped projects">
+          
+          <?php
+           
+                        $query = "SELECT * FROM proyectos";
+
+                        $result_tasks = mysqli_query($conn, $query);
+                        
+                        while ($row = mysqli_fetch_assoc($result_tasks)) { ?>
+                       
+                       
               <thead>
                   <tr>
                       <th style="width: 1%">
@@ -66,15 +88,15 @@
               <tbody>
                   <tr>
                       <td>
-                          #
+                      <?php echo $row['id']; ?>
                       </td>
                       <td>
                           <a>
-                              AdminLTE v3
+                          <?php echo $row['nombre']; ?>
                           </a>
                           <br/>
                           <small>
-                              Created 01.01.2019
+                          <?php echo $row['fecha_carga']; ?>
                           </small>
                       </td>
                       <td>
@@ -99,25 +121,33 @@
                               </div>
                           </div>
                           <small>
-                              57% Complete
+                              57% Completado
                           </small>
                       </td>
                       <td class="project-state">
-                          <span class="badge badge-success">Success</span>
+                        <?php if ($row['estado']=== "Cancelado"){?>
+                            
+                          <span class="badge badge-warning"><?php echo $row['estado']; ?></span>  
+                          <?php }
+                          else {?>
+                            <span class="badge badge-success"><?php echo $row['estado']; ?></span>
+                            <?php  }
+                        ?>
+                          
                       </td>
                       <td class="project-actions text-right">
                       
-                          <a class="btn btn-primary btn-sm" href="project-detail.php">
+                          <a class="btn btn-primary btn-sm" href="project-detail.php?id=<?php echo $row['id'] ?>">
                               <i class="fas fa-folder">
                               </i>
                               Ver
                           </a>
-                          <a class="btn btn-info btn-sm" href="project-edit.php">
+                          <a class="btn btn-info btn-sm" href="project-edit.php?id=<?php echo $row['id'] ?>">
                               <i class="fas fa-pencil-alt">
                               </i>
                               Editar
                           </a>
-                          <a class="btn btn-danger btn-sm" href="#">
+                          <a class="btn btn-danger btn-sm" href="delete_task.php?id=<?php echo $row['id'] ?>">
                               <i class="fas fa-trash">
                               </i>
                               Borrar
@@ -126,8 +156,11 @@
                   </tr>
            
               </tbody>
+              <?php } ?>
           </table>
         </div>
+
+      
         <!-- /.card-body -->
       </div>
       <!-- /.card -->
