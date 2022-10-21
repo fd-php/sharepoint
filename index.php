@@ -80,7 +80,7 @@
 										</form>
 									</div>
                                     <div class="card-footer text-center">
-                                        <div class="small"><a href="#">Estas Registrado? Registrate!</a></div>
+                                        <div class="small"><a href="registrar.php">Estas Registrado? Registrate!</a></div>
 									</div>
 								</div>
 							</div>
